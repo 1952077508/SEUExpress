@@ -1,3 +1,5 @@
+# 线程池
+
 线程池是一种用于管理和分配线程的机制，它可以有效地利用系统资源，提高程序的性能和响应速度。线程池的工作原理是预先创建一定数量的线程，当有任务需要执行时，从线程池中取出一个空闲的线程来执行任务，任务执行完毕后，线程不会被销毁，而是返回到线程池中等待下一个任务。
 
 线程池通常与任务队列一起使用。任务队列是一个存储任务的数据结构，它可以存储等待执行的任务。当有新的任务需要执行时，它会被添加到任务队列中。线程池中的线程会不断地从任务队列中取出任务来执行。
@@ -14,7 +16,7 @@
 
 ---
 
-//实现参考 https://www.cnblogs.com/carsonzhu/p/16799198.html
+//实现参考 <https://www.cnblogs.com/carsonzhu/p/16799198.html>
 
 `thread_pool.cpp`定义了一个名为`ThreadPool`的类，它用于管理和调度一组工作线程。这个类有三个公开的成员函数：一个构造函数，一个名为`enqueue`的函数，以及一个析构函数。
 
@@ -29,17 +31,17 @@
 ---
 
 usage for thread_pool.cpp
+
 ```cpp
 // create thread pool with 4 worker threads
 ThreadPool pool(4);
- 
+
 // enqueue and store future
 auto result = pool.enqueue([](int answer) { return answer; }, 42);
- 
+
 // get result from future
 std::cout << result.get() << std::endl;
 ```
-
 
 ```cpp
 #include "ThreadPool.hpp"
